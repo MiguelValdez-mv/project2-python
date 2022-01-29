@@ -6,5 +6,5 @@ from database import Base
 class Singers(Base):
     __tablename__ = "artists"
 
-    ArtistId = Column(Integer, primary_key=True, index=True)
+    ArtistId = Column(Integer, primary_key=True)
     Name = Column(String)
