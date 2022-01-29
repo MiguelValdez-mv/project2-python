@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 
-from modules.singers.router import router as singers_router
-from modules.albums.router import router as albums_router
-from modules.singer.router import router as singer_router
-from modules.song.router import router as song_router
+from modules.singers.api import router as singers_router
+from modules.albums.api import router as albums_router
+from modules.singer.api import router as singer_router
+from modules.song.api import router as song_router
 
 router = APIRouter()
 
