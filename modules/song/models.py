@@ -14,4 +14,4 @@ class Songs(Base):
     Composer = Column(String)
     Milliseconds = Column(Integer)
     Bytes = Column(Integer)
-    UnitPrice = Column(Numeric)
+    UnitPrice = Column(Numeric(10, 2))

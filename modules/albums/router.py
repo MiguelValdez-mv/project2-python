@@ -5,7 +5,6 @@ from sqlalchemy.orm import Session
 from database import get_db
 from . import repository
 from ..song.schemas import Song
-from modules import albums
 
 router = APIRouter()
 
@@ -22,6 +21,9 @@ def get_songs_from_an_album(
     album = repository.get_album_by_id(db, album_id)
 
     if album is None:
-        raise HTTPException(status_code=404, detail="Non-existent album")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Non-existent album"
+        )
 
     return repository.get_songs_from_an_album(db, album_id)

@@ -31,6 +31,9 @@ def get_albums_from_a_singer(
     singer = repository.get_singer_by_id(db, singer_id)
 
     if singer is None:
-        raise HTTPException(status_code=404, detail="Non-existent singer")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Non-existent singer"
+        )
 
     return repository.get_albums_from_a_singer(db, singer_id)
