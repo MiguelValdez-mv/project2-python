@@ -1,9 +1,10 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class Singer(BaseModel):
     ArtistId: int
-    Name: str
+    Name: Optional[str]
 
     class Config:
         orm_mode = True

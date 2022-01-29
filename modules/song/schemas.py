@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -7,9 +8,9 @@ class Song(BaseModel):
     AlbumId:  int
     MediaTypeId: int
     GenreId: int
-    Composer: str
+    Composer: Optional[str]
     Milliseconds: int
-    Bytes: int
+    Bytes: Optional[int]
     UnitPrice: float
 
     class Config:

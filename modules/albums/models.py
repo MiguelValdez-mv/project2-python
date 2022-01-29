@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 from database import Base
 
@@ -8,4 +8,4 @@ class Albums(Base):
 
     AlbumId = Column(Integer, primary_key=True)
     Title = Column(String)
-    ArtistId = Column(Integer)
+    ArtistId = Column(Integer, ForeignKey("artists.ArtistId"))
