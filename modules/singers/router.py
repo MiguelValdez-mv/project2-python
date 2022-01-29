@@ -21,17 +21,17 @@ def get_singers(db: Session = Depends(get_db)):
 
 
 @router.get(
-    "/{id_singer}/",
+    "/{singer_id}/",
     response_model=List[Album],
     status_code=status.HTTP_200_OK
 )
 def get_albums_from_a_singer(
-    id_singer: int,
+    singer_id: int,
     db: Session = Depends(get_db)
 ):
-    singer = repository.get_singer_by_id(db, id_singer)
+    singer = repository.get_singer_by_id(db, singer_id)
 
     if singer is None:
         raise HTTPException(status_code=404, detail="Non-existent singer")
 
-    return repository.get_albums_from_a_singer(db, id_singer)
+    return repository.get_albums_from_a_singer(db, singer_id)
