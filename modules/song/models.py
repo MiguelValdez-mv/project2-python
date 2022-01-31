@@ -24,7 +24,7 @@ class Genres(Base):
     Name = Column(String)
 
 
-class Media_Types(Base):
+class MediaTypes(Base):
     __tablename__ = "media_types"
 
     MediaTypeId = Column(Integer, primary_key=True)

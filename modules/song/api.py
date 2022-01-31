@@ -4,15 +4,20 @@ from sqlalchemy.orm import Session
 
 from database import get_db
 from . import repository
+from .schemas import SongDetails
 
 router = APIRouter()
 
 
-@router.get("/{song_id}/")
+@router.get(
+    "/{song_id}/",
+    response_model=SongDetails,
+    status_code=status.HTTP_200_OK
+)
 def get_details_of_a_song(
     song_id: int,
     db: Session = Depends(get_db)
-):
+) -> SongDetails:
     song = repository.get_song_by_id(db, song_id)
 
     if song is None:

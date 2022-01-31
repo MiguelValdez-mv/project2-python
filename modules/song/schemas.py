@@ -15,3 +15,11 @@ class Song(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class SongDetails(Song):
+    GenreName: str
+    MediaTypeName: str
+
+    class Config:
+        orm_mode = True
