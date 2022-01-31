@@ -15,7 +15,7 @@ router = APIRouter()
     response_model=List[Singer],
     status_code=status.HTTP_200_OK
 )
-def get_singers(db: Session = Depends(get_db)):
+def get_singers(db: Session = Depends(get_db)) -> List[Singer]:
     return repository.get_singers(db)
 
 
@@ -27,7 +27,7 @@ def get_singers(db: Session = Depends(get_db)):
 def get_albums_from_a_singer(
     singer_id: int,
     db: Session = Depends(get_db)
-):
+) -> List[Album]:
     singer = repository.get_singer_by_id(db, singer_id)
 
     if singer is None:
