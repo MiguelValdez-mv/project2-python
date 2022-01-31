@@ -18,7 +18,7 @@ router = APIRouter()
 def get_songs_from_a_singer(
     singer_id: int,
     db: Session = Depends(get_db)
-):
+) -> List[Song]:
     singer = get_singer_by_id(db, singer_id)
 
     if singer is None:

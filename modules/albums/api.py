@@ -17,7 +17,7 @@ router = APIRouter()
 def get_songs_from_an_album(
     album_id: int,
     db: Session = Depends(get_db)
-):
+) -> List[Song]:
     album = repository.get_album_by_id(db, album_id)
 
     if album is None:
