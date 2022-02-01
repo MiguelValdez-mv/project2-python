@@ -19,6 +19,19 @@ def get_songs_from_a_singer(
     singer_id: int,
     db: Session = Depends(get_db)
 ) -> List[Song]:
+    """
+    Permite obtener la lista de canciones de un cantante
+
+    Parámetros
+    ----------
+    singer_id (int): Id del cantante
+    db (Session): Sesión de la base de datos
+
+    Retorna
+    -------
+    List[Song]: Lista de canciones del cantante
+    """
+
     singer = get_singer_by_id(db, singer_id)
 
     if singer is None:

@@ -18,6 +18,20 @@ def get_details_of_a_song(
     song_id: int,
     db: Session = Depends(get_db)
 ) -> SongDetails:
+    """
+    Permite obtener los detalles de una canción (todos los campos
+    de su tabla junto con el género y el tipo de media)
+
+    Parámetros
+    ----------
+    song_id (int): Id de la canción
+    db (Session): Sesión de la base de datos
+
+    Retorna
+    -------
+    SongDetails: Detalles de la canción
+    """
+
     song = repository.get_song_by_id(db, song_id)
 
     if song is None:

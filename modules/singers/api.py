@@ -16,6 +16,18 @@ router = APIRouter()
     status_code=status.HTTP_200_OK
 )
 def get_singers(db: Session = Depends(get_db)) -> List[Singer]:
+    """
+    Permite obtener la lista total de cantantes registrados
+
+    Parámetros
+    ----------
+    db (Session): Sesión de la base de datos
+
+    Retorna
+    -------
+    List[Singer]: Lista de cantantes
+    """
+
     return repository.get_singers(db)
 
 
@@ -28,6 +40,19 @@ def get_albums_from_a_singer(
     singer_id: int,
     db: Session = Depends(get_db)
 ) -> List[Album]:
+    """
+    Permite obtener la lista de albunes de un cantante
+
+    Parámetros
+    ----------
+    singer_id (int): Id del cantante
+    db (Session): Sesión de la base de datos
+
+    Retorna
+    -------
+    List[Album]: Lista de albunes del cantante
+    """
+
     singer = repository.get_singer_by_id(db, singer_id)
 
     if singer is None:

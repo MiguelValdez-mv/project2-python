@@ -18,6 +18,19 @@ def get_songs_from_an_album(
     album_id: int,
     db: Session = Depends(get_db)
 ) -> List[Song]:
+    """
+    Permite obtener la lista de canciones de un albúm
+
+    Parámetros
+    ----------
+    album_id (int): Id del albúm
+    db (Session): Sesión de la base de datos
+
+    Retorna
+    -------
+    List[Song]: Lista de canciones de un albúm
+    """
+
     album = repository.get_album_by_id(db, album_id)
 
     if album is None:
